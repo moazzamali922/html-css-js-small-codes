@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Toggle Password Visibility</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .form-group {
+            position: relative;
+            margin-bottom: 10px
+        }
+
+        .form-control {
+            min-height: 40px;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border: 1px solid #000;
+            padding: 10px 15px;
+            color: #111;
+        }
+
+        .field-icon {
+            position: absolute;
+            z-index: 1;
+            right: 15px;
+            bottom: 10px;
+            padding: 0;
+            color: #000000;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Sign In</h1>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="********" name="pwd">
+            <i class="bi bi-eye-slash field-icon" id="togglePassword"></i>
+        </div>
+    </div>
+    <script>
+        const togglePassword = document
+            .querySelector('#togglePassword');
+            const password = document.querySelector('#password');
+            togglePassword.addEventListener('click', () => {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            togglePassword.classList.toggle('bi-eye');
+            togglePassword.classList.toggle('bi-eye-slash-fill');
+        });
+    </script>
+</body>
+
+</html>
